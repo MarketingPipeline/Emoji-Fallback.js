@@ -1,11 +1,11 @@
 // Emoji Fallback Support 
 // by github.com/MarketingPipeline
 
-//// What this does 
-// requires Twemoji in document - if no emoji support - replace with images
+// Import Latest Version Of Twemoji
+import twemoji from '//cdn.jsdelivr.net/npm/twemoji/2/esm.js';
 
-var emojis = (function() {
-// Modernizr Test
+// Modernizr Test - Check for Emoji Support
+
 var emojiSupported = (function() { 
   var node = document.createElement('canvas');
   if (!node.getContext || !node.getContext('2d') ||
@@ -18,19 +18,10 @@ var emojiSupported = (function() {
   return ctx.getImageData(16, 16, 1, 1).data[0] !== 0;
 })();
 
+
+
+// Replace Unicode with Image Emoji's via Twemoji - If No Emoji Supporte 
 if (!emojiSupported) {
   // if Emoji not supported 
   twemoji.parse(document.body);
 }
-}(window, twemoji));
-
-// Wait for document to finish loading
-function ready(cb) {
-  if (document.readyState != 'loading') {
-    cb();
-  } else {
-    document.addEventListener('DOMContentLoaded', cb);
-  }
-}
-
-ready(emojis);
