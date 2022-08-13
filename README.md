@@ -23,7 +23,7 @@ How to use <b><i>Emoji-Fallback.js</b></i>:
 
          
 
-How to change the fall back <b>Emoji Sizes</b>:
+How to change the fallback <b>Emoji Sizes</b>:
 
 Twemoji / Image Emojis use a CSS class - to change the default styles used this is the CSS class you need to edit & add to your style sheet!
 
