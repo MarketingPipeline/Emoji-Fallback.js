@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
+   <!---Refer to https://github.com/MarketingPipeline/Emoji-Fallback.js - This is just a Demo page-->
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Emoji-Fallback.js | Add emoji support / emoji fallback to your website</title>
    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/prism.min.js"></script>
+    <!--- Emoji-Fallback.js Refer to https://github.com/MarketingPipeline/Emoji-Fallback.js for more info--> 
+  <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Emoji-Fallback.js/version/1.0.0/dist/emoji-fallback.min.js"></script> 
+    
+    
+    
+    <script>
+      // THIS IS JUST FOR THIS DEMO PAGE.
+      // Modernizr Test
+var emojiSupported = (function() { 
+  var node = document.createElement('canvas');
+  if (!node.getContext || !node.getContext('2d') ||
+      typeof node.getContext('2d').fillText !== 'function')
+    return false;
+  var ctx = node.getContext('2d');
+  ctx.textBaseline = 'top';
+  ctx.font = '32px Arial';
+  ctx.fillText('\ud83d\ude03', 0, 0);
+  return ctx.getImageData(16, 16, 1, 1).data[0] !== 0;
+})();
+
+if (!emojiSupported) {
+
+ var D = document.getElementById('main')
+  D.innerHTML = "Your browser does NOT support emojis, <br> these unicode emojis were replaced with images!"
+
+}else{
+   var D = document.getElementById('main')
+  D.innerHTML = "Your browser DOES support emojis, <br> these unicode emojis were NOT replaced with images!"
+}
+    </script>      
+    
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-tomorrow.min.css">
     <style>
-      /* Refer to https://github.com/MarketingPipeline/CSS-Image-Loader */
+      /* Refer to https://github.com/MarketingPipeline/Emoji-Fallback.js */
       /* This is just a Demo page */
     @import url(https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css);.emojis{margin-bottom:20px;font-size:32px}html{overflow-x:hidden;overflow-y:scroll;height:100%;box-sizing:border-box}html *,html :after,html :before{box-sizing:inherit}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;min-height:100%;font-size:16px}.wrapper{width:100%;padding:40px;background:#55acee;color:#fff}h1,h2{margin-top:0;font-weight:lighter;letter-spacing:2px}h1{font-size:42px}h2{font-size:22px}p{margin:10px 0 15px;line-height:1.5}a{color:rgba(0,0,0,.5)}code,pre{font-family:Consolas,'Liberation Mono',Courier,monospace}pre{padding:10px;text-align:left;background:#292f33;color:rgba(255,255,255,.7);font-size:14px;line-height:1.5;overflow-x:scroll}.method{margin-top:30px;margin-bottom:30px}.u-size620{width:100%;max-width:620px}.u-fullMinHeight{min-height:100vh}.u-verticalCenter{display:flex;align-items:center;justify-content:center}.u-textCenter{text-align:center}.top-text{font-size:14px}.bold{font-weight:700}
 
