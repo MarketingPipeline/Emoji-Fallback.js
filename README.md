@@ -1,7 +1,7 @@
 # Emoji-Fallback.js
-Provide fallback support for devices that don't support have full emoji support
+Replaces emoji characters with emoji images on devices that do not have full emoji support
 
-> Some older device's do not have emoji support and some emojis are shown as text character's like this <code>☺</code> or not all. This script provides a fallback by checking if there is emoji support on device - if NOT emoji's are replaced with images. For example: <code>☺</code> will become ☺ on devices with no emoji support
+> Some older device's do not have emoji support and some emojis are shown as text character's like this <code>☺</code> or sometimes not all. This script provides support on ALL devices by checking if there is emoji support on the device - if no emoji support is detected, then emoji's are replaced with images. For example: <code>☺</code> will become replaced with a <code>img</code> of a smiley face on a device with no emoji support.
 
 
 
