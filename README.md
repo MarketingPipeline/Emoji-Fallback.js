@@ -1,5 +1,5 @@
 # Emoji-Fallback.js
-Replaces emoji characters with emoji images on devices that do not have full emoji support
+Replaces emoji characters with emoji images on devices that do not have emoji support
 
 > Some older device's do not have emoji support and some emojis are shown as text character's like this <code>☺</code> or sometimes not all. This script provides support on ALL devices by checking if there is emoji support on the device - if no emoji support is detected, then emoji's are replaced with images. For example: <code>☺</code> will become replaced with a <code>img</code> of a smiley face on a device with no emoji support.
 
