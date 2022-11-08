@@ -15,9 +15,9 @@ How to use <b><i>Emoji-Fallback.js</b></i>:
 
   Add Emoji support to any website for every browser! Like so -
 
-   include this [script](https://github.com/MarketingPipeline/Emoji-Fallback.js/blob/main/version/1.0.0/dist/Emoji-Fallback.min.js) at the <b>bottom</b> of your HTML document.
+   include this [script](https://github.com/MarketingPipeline/Emoji-Fallback.js/blob/main/dist/Emoji-Fallback.min.js) at the <b>bottom</b> of your HTML document.
          
-    <script type="module" src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Emoji-Fallback.js/version/1.0.0/dist/Emoji-Fallback.min.js"></script> 
+    <script type="module" src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Emoji-Fallback.js/dist/Emoji-Fallback.min.js"></script> 
 
 
 
