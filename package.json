@@ -1,0 +1,12 @@
+{
+  "name": "@MarketingPipeline/Emoji-Fallback.js",
+  "description": "A JavaScript library that provides support for emojis on ALL web browsers!",
+  "version": "1.0.0",
+  "homepage": "https://github.com/MarketingPipeline/Emoji-Fallback.js",
+  "license": "GPL-3.0",
+  "main": "./dist/emoji-fallback.min.js",
+  "author": {
+    "name": "MarketingPipeline",
+    "url": "https://github.com/MarketingPipeline"
+  }
+}
