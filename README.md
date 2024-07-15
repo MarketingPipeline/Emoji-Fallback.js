@@ -61,6 +61,6 @@ participate in this project.
 
 ## License ![GitHub](https://img.shields.io/github/license/MarketingPipeline/Emoji-Fallback.js)
 
-This project is licensed under the GPL-3.0 License - see the
+This project is licensed under the MIT License - see the
 [LICENSE.md](https://github.com/MarketingPipeline/Emoji-Fallback.js/blob/main/LICENSE) file for
 details.
