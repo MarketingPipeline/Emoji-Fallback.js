@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 - Extracted emoji support check and parsing logic into modular functions.
 - Fixed CDN issue see [here](https://github.com/twitter/twemoji/issues/580)
 - Improved code readability and maintainability.
-
+- License from GPL-3.0 to MIT.
 
 ## [1.0.0] - (Aug 7, 2022)
 
