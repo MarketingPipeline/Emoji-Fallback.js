@@ -1,10 +1,7 @@
 # Emoji-Fallback.js
-Replaces emoji characters with emoji images on devices that do not have emoji support
+Replaces emoji characters with emoji images on devices that do not have emoji support with image emojis using Twemoji if needed.
 
 > Some older device's do not have emoji support and some emojis are shown as text character's like this <code>☺</code> or sometimes not all. This script provides support on ALL devices by checking if there is emoji support on the device - if no emoji support is detected, then emoji's are replaced with images. For example: <code>☺</code> will become replaced with a <code>img</code> of a smiley face on a device with no emoji support.
-
-
-
 
 ## Example and usage
 
@@ -13,11 +10,20 @@ You can view a demo of Emoji Fallback in use [here.](https://marketingpipeline.g
 
 How to use <b><i>Emoji-Fallback.js</b></i>:
 
-  Add Emoji support to any website for every browser! Like so -
-
-   include this [script](https://github.com/MarketingPipeline/Emoji-Fallback.js/blob/main/dist/Emoji-Fallback.min.js) at the <b>bottom</b> of your HTML document.
-         
-    <script type="module" src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Emoji-Fallback.js/dist/Emoji-Fallback.min.js"></script> 
+```html
+<!doctype html>
+<html>
+<head>
+    <title>Emoji-Fallback.js Basic Example</title>
+</head>
+<body>
+    <script type="module">
+        import { emojiFallback } from 'https://cdn.jsdelivr.net/gh/MarketingPipeline/Emoji-Fallback.js@latest/dist/emoji-fallback.min.js';
+        emojiFallback();
+    </script>
+</body>
+</html>
+```
 
 
 
@@ -25,7 +31,7 @@ How to use <b><i>Emoji-Fallback.js</b></i>:
 
 How to change the fallback <b>Emoji Sizes</b>:
 
-Twemoji / Image Emojis use a CSS class - to change the default styles used this is the CSS class you need to edit & add to your style sheet!
+The image emojis use a CSS class - to change the default styles used this is the CSS class you need to edit & add to your style sheet!
 
 ```css
 img.emoji {
