@@ -14,38 +14,32 @@ How to use <b><i>Emoji-Fallback.js</b></i>:
 <!doctype html>
 <html>
 <head>
-    <title>Emoji-Fallback.js Basic Example</title>
+  <title>Emoji-Fallback.js Basic Example</title>
 </head>
 <body>
-    <script type="module">
-        import { emojiFallback } from 'https://cdn.jsdelivr.net/gh/MarketingPipeline/Emoji-Fallback.js@latest/dist/emoji-fallback.min.js';
-        emojiFallback();
-    </script>
+  <script type="module">
+    import {
+      emojiFallback,
+      emojiSupported
+    } from "https://cdn.jsdelivr.net/gh/MarketingPipeline/Emoji-Fallback.js@latest/dist/emoji-fallback.min.js";
+ 
+    !async function() {
+      const isSupported = emojiSupported();
+      console.log(`Emoji supported: ${isSupported}`);
+      if (!isSupported) {
+        await emojiFallback();
+        console.log("Emoji's rendered via fallback");
+      }
+    }()
+    emojiFallback();
+  </script>
 </body>
 </html>
 ```
 
 
 
-         
-
-How to change the fallback <b>Emoji Sizes</b>:
-
-The image emojis use a CSS class - to change the default styles used this is the CSS class you need to edit & add to your style sheet!
-
-```css
-img.emoji {
-  display: inline !important;
-  border: none !important;
-  box-shadow: none !important;
-  height: 1em !important;
-  width: 1em !important;
-  margin: 0 .07em !important;
-  vertical-align: -0.1em !important;
-  background: none !important;
-  padding: 0 !important;
-} 
-```
+For more advanced usage - see documentation [here](https://github.com/MarketingPipeline/Emoji-Fallback.js/wiki).
 
 
 
