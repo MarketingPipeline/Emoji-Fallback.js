@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - (November 6, 2024)
+
+### Added
+- `parseEmojiString` function to parse strings with emojis and replace them with Twemoji image links.
+- Added default options such as `className:"emoji"` - that were missed in previous version. 
+
 ## [2.0.0] - (July 15, 2024)
 
 ### Added
@@ -26,5 +32,6 @@ Initial Release.
 These Markdown anchors provide a link to the diff for each release. They should be
 updated any time a new release is cut.
 -->
+[2.0.1]: /v2.0.1
 [2.0.0]: /v2.0.0
 [1.0.0]: /v1.0.0
