@@ -69,10 +69,40 @@ export const parseEmoji = async (element = document.body, cdn = 'https://cdn.jsd
   }
   
   if (!emojiSupport) {
-    await twemoji.parse(element, {
-      base: cdn
+    return await twemoji.parse(element, {
+      base: cdn,
+      className: className
     });
   }
+};
+
+
+/**
+ * Parses a string with emojis and replaces them with Twemoji image links.
+ * @param {string} input - The input string to parse.
+ * @param {string} [cdn='https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'] - The CDN URL for Twemoji assets.
+ * @param {string} className - The CSS class name to apply to the replaced emoji images.
+ * @returns {Promise<void>} A promise that resolves when the parsing is complete.
+ * @throws {Error} If the input string, CDN URL or className is invalid.
+ */
+export const parseEmojiString = (input, cdn = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/', className = 'emoji') => {
+  if (!isValidString(input)) {
+    throw new Error("Invalid input. Must be a non-empty string.");
+  }
+  
+  if (!isValidString(cdn)) {
+    throw new Error(`Invalid CDN URL provided. Must be a valid string.`);
+  }
+  
+  if (!isValidString(className)) {
+    throw new Error(`Invalid ClassName provided. Must be a valid string.`);
+  }  
+
+  // Use Twemoji to parse the input string and replace emojis with image links
+  return twemoji.parse(input, {
+    base: cdn,
+    className: className,
+  });
 };
 
 /**
