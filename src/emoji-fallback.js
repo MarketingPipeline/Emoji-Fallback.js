@@ -95,7 +95,7 @@ export const parseEmoji = async (element = document.body, cdn = 'https://cdn.jsd
   return await twemoji.parse(element, {
     callback: flagSupport ? undefined : (icon, options, variant) => {
       if (!icon.match(/^1f1[ef][0-9a-f]-1f1[ef][0-9a-f]$/)) {
-        return;
+        return false;
       }
       return ''.concat(options.base, options.size, '/', icon, options.ext);
     },
