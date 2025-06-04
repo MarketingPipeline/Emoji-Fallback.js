@@ -88,17 +88,23 @@ export const parseEmoji = async (element = document.body, cdn = 'https://cdn.jsd
   const emojiSupport = emojiSupported();
   const flagSupport = emojiSupport && flagSupported();
   
+  // If even the flags are supported, there's nothing to be done.
   if (flagSupport) {
     return;
   }
   
   return await twemoji.parse(element, {
-    callback: flagSupport ? undefined : (icon, options, variant) => {
-      if (!icon.match(/^1f1[ef][0-9a-f]-1f1[ef][0-9a-f]$/)) {
-        return false;
-      }
-      return ''.concat(options.base, options.size, '/', icon, options.ext);
-    },
+    callback: (icon, options, variant) => {
+	  // Icon will look like "1f1fa-1f1f8" for flags such as 🇺🇸.
+	  const flagEmojiRegex = /^1f1[ef][0-9a-f]-1f1[ef][0-9a-f]$/;
+	  // If the emojis other than the flags are supported, filter those out.
+	  if (emojiSupport && !flagEmojiRegex.test(icon)) {
+	    // Instruct twemoji not to replace the emoji; keep it as it is.
+	    return false;
+	  }
+	  // Perform the replacement
+	  return ''.concat(options.base, options.size, '/', icon, options.ext);
+	},
     base: cdn,
     className: className
   });
