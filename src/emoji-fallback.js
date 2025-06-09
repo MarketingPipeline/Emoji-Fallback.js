@@ -42,6 +42,29 @@ export const emojiSupported = () => {
 };
 
 /**
+ * Checks if the browser supports national flag emoji rendering.
+ * @returns {boolean} True if flags are supported, false otherwise.
+ */
+export const flagSupported = () => {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  if (!ctx || typeof ctx.fillText !== 'function') {
+    canvas.remove();
+    return false;
+  }
+
+  ctx.textBaseline = 'top';
+  ctx.font = '32px Arial';
+  ctx.fillText('\u{1f1fa}\u{1f1f8}', 0, 0);
+
+  let imageData = ctx.getImageData(16, 16, 1, 1).data;
+  imageData = imageData[0] !== 0;
+  canvas.remove();
+  return imageData;
+};
+
+/**
  * Replaces Unicode emojis with image emojis using Twemoji if native emoji support is not available.
  * @param {Element|DocumentFragment} [element=document.body] - The DOM element to parse for emojis.
  * @param {string} [cdn='https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'] - The CDN URL for Twemoji assets.
@@ -63,17 +86,28 @@ export const parseEmoji = async (element = document.body, cdn = 'https://cdn.jsd
   }  
   
   const emojiSupport = emojiSupported();
+  const flagSupport = emojiSupport && flagSupported();
   
-  if (emojiSupport) {
+  // If even the flags are supported, there's nothing to be done.
+  if (flagSupport) {
     return;
   }
   
-  if (!emojiSupport) {
-    return await twemoji.parse(element, {
-      base: cdn,
-      className: className
-    });
-  }
+  return await twemoji.parse(element, {
+    callback: (icon, options, variant) => {
+	  // Icon will look like "1f1fa-1f1f8" for flags such as 🇺🇸.
+	  const flagEmojiRegex = /^1f1[ef][0-9a-f]-1f1[ef][0-9a-f]$/;
+	  // If the emojis other than the flags are supported, filter those out.
+	  if (emojiSupport && !flagEmojiRegex.test(icon)) {
+	    // Instruct twemoji not to replace the emoji; keep it as it is.
+	    return false;
+	  }
+	  // Perform the replacement
+	  return ''.concat(options.base, options.size, '/', icon, options.ext);
+	},
+    base: cdn,
+    className: className
+  });
 };
 
 
