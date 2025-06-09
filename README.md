@@ -2,6 +2,8 @@
 Replaces emoji characters with emoji images on devices that do not have emoji support with image emojis using Twemoji if needed.
 
 > Some older device's do not have emoji support and some emojis are shown as text character's like this <code>☺</code> or sometimes not all. This script provides support on ALL devices by checking if there is emoji support on the device - if no emoji support is detected, then emoji's are replaced with images. For example: <code>☺</code> will become replaced with a <code>img</code> of a smiley face on a device with no emoji support.
+>
+> Currently on Windows, most emojis are supported, except for national flags such as 🇺🇸. When such cases are detected, this script will replace only the flag emojis with images.
 
 ## Example and usage
 
